@@ -1,9 +1,11 @@
 // Client side C/C++ program to demonstrate Socket programming
 #include <stdio.h>
-#include <sys/socket.h>
+// #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <string.h>
+
+#define IP_ADDRESS "192.168.8.200"
 #define PORT 8080
 
 int main(int argc, char const *argv[]){
@@ -21,7 +23,7 @@ int main(int argc, char const *argv[]){
 	serv_addr.sin_port = htons(PORT);
 	
 	// Convert IPv4 and IPv6 addresses from text to binary form
-	if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr)<=0){
+	if(inet_pton(AF_INET, IP_ADDRESS , &serv_addr.sin_addr)<=0){
 		printf("\nInvalid address/ Address not supported \n");
 		return -1;
 	}
