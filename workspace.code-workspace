@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../../../usr/"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"socket.h": "c",
+			"inet.h": "c",
+			"string.h": "c",
+			"functional": "c"
+		}
+	}
+}
