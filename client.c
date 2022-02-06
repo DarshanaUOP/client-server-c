@@ -23,7 +23,11 @@ int main(int argc, char const *argv[]){
 	serv_addr.sin_port = htons(PORT);
 	
 	// Convert IPv4 and IPv6 addresses from text to binary form
-	if(inet_pton(AF_INET, IP_ADDRESS , &serv_addr.sin_addr)<=0){
+	int ip_bin = inet_pton(AF_INET, IP_ADDRESS , &serv_addr.sin_addr);
+	
+	printf("%d\n",ip_bin);
+
+	if(ip_bin<=0){
 		printf("\nInvalid address/ Address not supported \n");
 		return -1;
 	}

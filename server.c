@@ -8,6 +8,7 @@
 
 #define PORT 8080
 
+// refference : https://www.geeksforgeeks.org/socket-programming-cc/
 int main(int argc, char const *argv[]){
 
 	int server_fd, new_socket, valread;
@@ -18,7 +19,7 @@ int main(int argc, char const *argv[]){
 	char *hello = "Hello from server";
 	
 	// Creating socket file descriptor
-	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0){
+	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0){ // AF_INET (IP protocol family.) , SOCK_STREAM = TCP 
 		perror("socket failed");
 		exit(EXIT_FAILURE);
 	}
@@ -31,6 +32,8 @@ int main(int argc, char const *argv[]){
 	address.sin_family = AF_INET;
 	address.sin_addr.s_addr = INADDR_ANY;
 	address.sin_port = htons( PORT );
+
+	printf("port %d" , address.sin_port);
 	
 	// Forcefully attaching socket to the port 8080
 	if (bind(server_fd, (struct sockaddr *)&address,sizeof(address))<0){
